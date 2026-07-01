@@ -78,3 +78,30 @@ section.classList.add("hidden");
 observer.observe(section);
 
 });
+
+const menuBtn = document.getElementById("menu-btn");
+const nav = document.getElementById("nav");
+
+menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("active");
+
+    // Change icon
+    const icon = menuBtn.querySelector("i");
+
+    if (nav.classList.contains("active")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+    } else {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+    }
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll("#nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        menuBtn.querySelector("i").classList.remove("fa-xmark");
+        menuBtn.querySelector("i").classList.add("fa-bars");
+    });
+});
