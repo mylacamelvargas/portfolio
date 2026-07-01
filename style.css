@@ -1546,9 +1546,12 @@ visibility:visible;
 }
 
 .menu-btn{
-
-display:contents;
-
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:28px;
+    color:#fff;
 }
 
 .timeline{
