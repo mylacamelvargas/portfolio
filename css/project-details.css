@@ -1,0 +1,306 @@
+/*==========================================
+GOOGLE FONT
+==========================================*/
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/*==========================================
+ROOT
+==========================================*/
+:root{
+
+    --bg:#050816;
+    --card:rgba(255,255,255,.05);
+    --border:rgba(255,255,255,.08);
+
+    --white:#ffffff;
+    --gray:#94a3b8;
+
+    --primary:#3b82f6;
+    --secondary:#2563eb;
+
+    --shadow:0 20px 60px rgba(0,0,0,.45);
+
+}
+
+/*==========================================
+RESET
+==========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Outfit',sans-serif;
+    background:var(--bg);
+    color:var(--white);
+    line-height:1.8;
+    overflow-x:hidden;
+
+}
+
+/*==========================================
+BACKGROUND
+==========================================*/
+
+body::before{
+
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,#2563eb25,transparent 35%),
+    radial-gradient(circle at bottom right,#7c3aed20,transparent 35%),
+    radial-gradient(circle at center,#1d4ed815,transparent 45%);
+
+    z-index:-2;
+
+}
+
+body::after{
+
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+
+    background-size:50px 50px;
+    opacity:.15;
+
+    z-index:-1;
+
+}
+
+/*==========================================
+PROJECT DETAILS
+==========================================*/
+
+.project-details{
+
+    max-width:1100px;
+    margin:80px auto;
+    padding:50px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:28px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.project-details h1{
+
+    font-size:46px;
+    margin-bottom:20px;
+
+}
+
+.project-details h2{
+
+    margin-top:45px;
+    margin-bottom:20px;
+
+    color:var(--primary);
+
+    font-size:28px;
+
+}
+
+.project-details p{
+
+    color:var(--gray);
+    font-size:18px;
+    margin-bottom:25px;
+    text-align:justify;
+
+}
+
+.project-details ul{
+
+    margin-left:25px;
+    color:var(--gray);
+
+}
+
+.project-details li{
+
+    margin-bottom:15px;
+    font-size:17px;
+
+}
+
+/*==========================================
+BUTTON
+==========================================*/
+
+.btn-back{
+    display:inline-block;
+    margin-top:40px;
+    padding:12px 25px;
+    border:2px solid #2563eb;
+    color:#2563eb;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-back:hover{
+    background:#2563eb;
+    color:#fff;
+
+}
+
+.back-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.pdf-btn{
+
+    color:var(--gray);
+    text-decoration:none;
+
+    font-weight:600;
+
+    border-bottom:1px solid transparent;
+
+    transition:.3s;
+
+}
+
+/*==========================================
+RESPONSIVE
+==========================================*/
+
+@media(max-width:768px){
+
+.project-details{
+
+margin:40px 20px;
+padding:35px;
+
+}
+
+.project-details h1{
+
+font-size:34px;
+
+}
+
+.project-details h2{
+
+font-size:24px;
+
+}
+
+.project-details p{
+
+font-size:16px;
+
+}
+
+}
+
+/*==========================================
+PROJECT GALLERY
+==========================================*/
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+/* Card */
+.gallery-item {
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Image (IMPORTANT PART) */
+.gallery-item img {
+    width: 100%;
+    height: 180px;
+
+    object-fit: contain;   /* 🔥 shows FULL image, no cropping */
+    background: rgba(0,0,0,0.25);
+
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 55px rgba(0,0,0,0.5);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-item img {
+        height: 150px;
+    }
+}
+
+/* Lightbox Overlay */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+/* Lightbox Image */
+.lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    animation: zoomIn 0.3s ease;
+}
+
+/* Animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
