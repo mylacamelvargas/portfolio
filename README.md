@@ -1,6 +1,6 @@
 #  My Portfolio
 
-Personal portfolio website showcasing my skills, projects, and experience as a Computer Engineering graduate and aspiring Web Developer.
+Personal portfolio website showcasing my skills, projects, and experience as a Computer Engineering graduate and aspiring Software Developer.
 
 🔗 **Live Demo:** https://mylavargas.vercel.app/
 
